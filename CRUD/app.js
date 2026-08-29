@@ -1,1 +1,0 @@
-console.log("Hola escribiendo esto desde el archivo app.js en VSCode");
