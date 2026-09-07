@@ -1,12 +1,20 @@
 type TodoFilter = "all" | "active" | "completed";
 
-export default function Todofilters() {
+type TodofiltersProps = {
+    onFilterChange: (filter: TodoFilter) => void;
+};
+
+export default function TodoFilters({
+    onFilterChange,
+}: TodofiltersProps) {
     return (
         <div>
             <h2>Todo Filters</h2>
-            <button>All</button>
-            <button>Active</button>
-            <button>Completed</button>
+
+            <button> onClick={() => onFilterChange("all")}>All</button>
+            <button> onClick={() => onFilterChange("active")}>Active</button>
+            <button> onClick={() => onFilterChange("completed")}>Completed</button> 
+            
         </div>
     );
 }
