@@ -1,3 +1,5 @@
+type TodoFilter = "all" | "active" | "completed";
+
 export default function Todofilters() {
     return (
         <div>
