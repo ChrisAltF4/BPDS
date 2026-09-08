@@ -5,7 +5,7 @@ import {
     ItemsLeft,
 } from "./Todofilters.components";
 
-const Todofilters = ({
+const TodoFilters = ({
     total,
     activeFilter,
     showAllTodos,
