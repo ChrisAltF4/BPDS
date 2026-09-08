@@ -45,3 +45,10 @@ const FilterButton = ({
         </button>
     );
 };
+
+export {
+    FiltersContainer,
+    ItemsLeft,
+    FilterButtonContainer,
+    FilterButton,
+};
