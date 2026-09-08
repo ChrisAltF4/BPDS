@@ -7,3 +7,11 @@ const FiltersContainer = ({ children }: { children: React.ReactNode }) => {
 };
 
 export { FiltersContainer };
+
+conts ItemsLeft = ({ total = 0 }) => {
+    return (
+        <p className="text-gray-400 text-sm">
+            {total} item{total !== 1 ? 's' : ''} left
+        </p>
+    );
+};
