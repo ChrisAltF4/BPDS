@@ -6,7 +6,6 @@ const FiltersContainer = ({ children }: { children: React.ReactNode }) => {
     );
 };
 
-export { FiltersContainer };
 
 conts ItemsLeft = ({ total = 0 }) => {
     return (
