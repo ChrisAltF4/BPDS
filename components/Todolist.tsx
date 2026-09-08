@@ -1,5 +1,5 @@
 import { TodoFilters } from "./Filters/Todofilters";
-import { Todo } from "./Todo";
+import { Todo } from "@/Components/Todo";
 
 type TodoItem = {
   id: number;

@@ -1,10 +1,9 @@
 "use client"
 
-import { Title } from "@components/Title";
-import { Todo } from "@components/Todo";
-import { Todoinput } from "@components/Todoinput";
-import { Todolist } from "@components/Todolist";
-import { todo } from "node:test";
+import { Title } from "@/Components/Title";
+import { Todo } from "@/Components/Todo";
+import { TodoInput } from "@/Components/Todoinput";
+import { Todolist } from "@/Components/Todolist";
 import { useEffect, useState } from "react";
 
 export default function Home() {
@@ -43,24 +42,26 @@ export default function Home() {
             completed: false
         };
 
-        const todoList = [...todos]
+        const todoList = [...todos];
         todoList.push(newTodo);
         setTodos(todoList);
     };
 
-    const handleSetCompleted = (id : number) => {
+    const handleSetCompleted = (id: number) => {
         const updateList = todos.map((todo) => {
             if (todo.id === id) {
                 return { ...todo, completed: !todo.completed };
             }
             return todo;
-        })
-        setTodo(updateList);
-    }
+        });
+
+        setTodos(updateList);
+    };
+
     const handleDelete = (id: number) => {
         const updateList = todos.filter((todo) => todo.id !== id);
         setTodos(updateList);
-    }
+    };
 
     const handleEditTodo = (id: number, newTitle: string) => {
         const updateList = todos.map((todo) => {
@@ -70,56 +71,55 @@ export default function Home() {
             return todo;
         });
         setTodos(updateList);
-    }
+    };
 
     const handleClearCompleted = () => {
         const updateList = todos.filter((todo) => !todo.completed);
         setTodos(updateList);
     };
-    
+
     const showAllTodos = () => {
-        setActiveFilter("all")
-    }
+        setActiveFilter("all");
+    };
 
     const showActiveTodos = () => {
-        setActiveFilter("active")
-    }
+        setActiveFilter("active");
+    };
 
     const showCompletedTodos = () => {
-        setActiveFilter("completed")
-    }
+        setActiveFilter("completed");
+    };
 
     useEffect(() => {
         if (activeFilter === "all") {
-            setFilteredTodos(todos)
+            setFilteredTodos(todos);
         } else if (activeFilter === "active") {
-            const activeTodos = todos.filter(todo=> !todo.completed);
-            setFilteredTodos(activeTodos)
+            const activeTodos = todos.filter((todo) => !todo.completed);
+            setFilteredTodos(activeTodos);
         } else if (activeFilter === "completed") {
-            const completedTodos = todos.filter(todo => todo.completed === true)
-            setFilteredTodos(completedTodos)
+            const completedTodos = todos.filter((todo) => todo.completed === true);
+            setFilteredTodos(completedTodos);
         }
-    }, [activeFilter, todos]
-    )
+    }, [activeFilter, todos]);
 
     return (
         <div className="bg-gray-900 min-h-screen h-full text-amber-300 flex items-center justify-center py-20 px-5">
             <div className="container flex flex-col max-w-xl">
                 <Title />
-                <Todoinput addTodo={addTodo} />
+                <TodoInput addTodo={addTodo} />
                 <Todolist
                     todos={filteredTodos}
+                    activeFilter={activeFilter}
                     handleSetCompleted={handleSetCompleted}
                     handleDelete={handleDelete}
                     handleEditTodo={handleEditTodo}
-                    handleClearCompleted={handleClearCompleted}
                     showAllTodos={showAllTodos}
                     showActiveTodos={showActiveTodos}
                     showCompletedTodos={showCompletedTodos}
-                    handleClearCompleted={handleClearCompleted}
+                    handleClearComplete={handleClearCompleted}
                 />
             </div>
         </div>
-    )
+    );
 }
 
