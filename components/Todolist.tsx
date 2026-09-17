@@ -35,8 +35,7 @@ const Todolist = ({
           deletedTodos.map((todo) => (
             <div
               key={todo.id}
-              className="flex items-center p-4 bg-gray-700 border-b border-solid border-gray-600 rounded-lg"
-            >
+              className="flex items-center p-4 bg-gray-700 border-b border-solid border-gray-600 rounded-lg">
               <p className="text-gray-400 line-through">{todo.title}</p>
             </div>
           ))
