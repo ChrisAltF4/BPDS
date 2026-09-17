@@ -1,4 +1,4 @@
-import { TodoFilters } from "./Filters/TodoFilters";
+import { TodoFilters } from "./Filters/Todofilters";
 import { Todo } from "./Todo";
 
 type TodoItem = { id: number; title: string; completed: boolean };

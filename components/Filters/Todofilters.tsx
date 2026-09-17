@@ -11,12 +11,14 @@ const TodoFilters = ({
     showAllTodos,
     showActiveTodos,
     showCompletedTodos,
+    showDeletedTodos,
     handleClearComplete,
 }: {
     total: number;
     activeFilter: string;
     showAllTodos: () => void;
     showActiveTodos: () => void;
+    showDeletedTodos: () => void;
     showCompletedTodos: () => void;
     handleClearComplete: () => void;
 }) => {
@@ -39,6 +41,11 @@ const TodoFilters = ({
                     action={() => showCompletedTodos()}
                     active={activeFilter}
                     filter="Completed"
+                />
+                <FilterButton
+                    action={() => showDeletedTodos()}
+                    active={activeFilter}
+                    filter="Deleted"
                 />
             </FilterButtonContainer>
 
