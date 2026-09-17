@@ -15,12 +15,12 @@ export default function Home() {
         },
         {
             id: 2,
-            title: "Entregar la todo list por segunda vez sin fracasar en el intento",
+            title: "Jugar Dark Souls 3",
             completed: false
         },
         {
             id: 3,
-            title: "Saludar a la profe Kelly",
+            title: "Hacer la tarea de la universidad",
             completed: false
         },
         {
@@ -32,6 +32,11 @@ export default function Home() {
 
     const [activeFilter, setActiveFilter] = useState("all");
     const [filteredTodos, setFilteredTodos] = useState(todos);
+    const [deletedTodos, setDeletedTodos] = useState<{
+        id: number;
+        title: string;
+        completed: boolean;
+    }[]>([]);
 
     const addTodo = (title: string) => {
         const lastId = todos.length > 0 ? todos[todos.length - 1].id : 1;
@@ -59,6 +64,10 @@ export default function Home() {
     };
 
     const handleDelete = (id: number) => {
+        const deletedTodo = todos.find((todo) => todo.id === id);
+        if (deletedTodo) {
+            setDeletedTodos((prev) => [...prev, deletedTodo]);
+        }
         const updateList = todos.filter((todo) => todo.id !== id);
         setTodos(updateList);
     };
@@ -90,6 +99,10 @@ export default function Home() {
         setActiveFilter("completed");
     };
 
+    const showDeletedTodos = () => {
+        setActiveFilter("deleted");
+    };
+
     useEffect(() => {
         if (activeFilter === "all") {
             setFilteredTodos(todos);
@@ -110,12 +123,14 @@ export default function Home() {
                 <Todolist
                     todos={filteredTodos}
                     activeFilter={activeFilter}
+                    deletedTodos={deletedTodos}
                     handleSetCompleted={handleSetCompleted}
                     handleDelete={handleDelete}
                     handleEditTodo={handleEditTodo}
                     showAllTodos={showAllTodos}
                     showActiveTodos={showActiveTodos}
                     showCompletedTodos={showCompletedTodos}
+                    showDeletedTodos={showDeletedTodos}
                     handleClearComplete={handleClearCompleted}
                 />
             </div>
