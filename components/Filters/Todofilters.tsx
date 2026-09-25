@@ -3,7 +3,7 @@ import {
     FilterButtonContainer,
     FiltersContainer,
     ItemsLeft,
-} from "../../Components/Filters/Todofilters.components";
+} from "../../components/Filters/Todofilters.components";
 
 const TodoFilters = ({
     total,
