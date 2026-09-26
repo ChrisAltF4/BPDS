@@ -1,9 +1,8 @@
 "use client"
 
-import { Title } from "@/Components/Title";
-import { Todo } from "@/Components/Todo";
-import { TodoInput } from "@/Components/Todoinput";
-import { Todolist } from "@/Components/Todolist";
+import { Title } from "../components/Title";
+import { TodoInput } from "../components/Todoinput";
+import { Todolist } from "../components/Todolist";
 import { useEffect, useState } from "react";
 
 export default function Home() {
